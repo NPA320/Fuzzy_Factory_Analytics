@@ -109,5 +109,4 @@ Chi tiết đầy đủ + action đề xuất: xem `docs/Project_Brief.pdf`.
 - **ETL:** Python (pandas, SQLAlchemy, pyodbc)
 - **BI:** Power BI
 
-**Nguyễn Phúc An** — Information Systems student, [Ho Chi Minh City University of Technology and Education](#)
-[LinkedIn](#) · [GitHub](#)
+**Nguyễn Phúc An** — Information Systems student, [Ho Chi Minh City University of Technology and Education]
