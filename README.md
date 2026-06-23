@@ -15,8 +15,6 @@ Pipeline: **CSV (raw data) → SQL Server (tạo bảng) → Python (ETL: clean 
 
 Chi tiết đầy đủ về bối cảnh và phát hiện phân tích: xem [`docs/Project_Brief.pdf`](docs/Project_Brief.pdf).
 
-> ⚠️ Trước khi coi các số liệu trong báo cáo là kết luận cuối cùng, xem [`REVIEW.md`](REVIEW.md) — file ghi lại các lỗi kỹ thuật đã phát hiện trong quá trình rà soát lại pipeline và hướng sửa.
-
 ---
 
 ## 2. Cấu trúc repo
@@ -53,8 +51,6 @@ Chạy `sql/01_create_tables.sql` trên SQL Server để tạo database `FUZZY_F
 
 (thứ tự này cũng là thứ tự khóa ngoại: bảng cha phải tồn tại trước bảng con tham chiếu tới nó).
 
-> Đặt 6 file CSV gốc vào `data/raw/` trước khi sang Stage 2. Tên file phải khớp đúng: `products.csv`, `website_sessions.csv`, `website_pageviews.csv`, `orders.csv`, `order_items.csv`, `order_item_refunds.csv`.
-
 ## 4. Stage 2 — ETL (Python)
 
 ```bash
@@ -69,18 +65,30 @@ python etl/etl.py
 ```
 
 Script sẽ:
-1. Kết nối SQL Server (nếu không kết nối được → tự chuyển sang "chế độ giả lập", lưu CSV đã làm sạch vào `data/processed/`).
+1. Kết nối SQL Server , lưu CSV đã làm sạch vào `data/processed/`.
 2. Đọc từng CSV trong `data/raw/`, loại trùng, chuẩn hoá chuỗi, xử lý NULL theo từng bảng cụ thể, ép kiểu ngày.
-3. Xoá dữ liệu cũ bằng `DELETE` (không `DROP TABLE`, để giữ nguyên ràng buộc khóa ngoại) rồi nạp dữ liệu mới (`append`).
+3. Xoá dữ liệu cũ bằng `DELETE`, rồi nạp dữ liệu mới.
 
 ## 5. Stage 3 — EDA (SQL)
 
-Chạy từng block trong `sql/02_eda_queries.sql` trên SQL Server (hoặc trong SSMS/Azure Data Studio) để lấy các chỉ số: doanh thu theo thời gian, AOV/AUP/UPT, refund rate theo sản phẩm, traffic & conversion theo nguồn, funnel theo thiết bị, cross-sell, retention...
+Chạy từng block trong `sql/02_eda_queries.sql` trên SQL Server để lấy các chỉ số: doanh thu theo thời gian, AOV/AUP/UPT, refund rate theo sản phẩm, traffic & conversion theo nguồn, funnel theo thiết bị, cross-sell, retention...
 
 
 ## 6. Stage 4 — Dashboard (Power BI)
 
-Mở `dashboard/Dashboard_Fuzzy_Factory.pbix` bằng Power BI Desktop, trỏ lại nguồn dữ liệu về SQL Server instance của bạn (Power BI → Transform Data → Data source settings).
+Mở `dashboard/Dashboard_Fuzzy_Factory.pbix` bằng Power BI Desktop, trỏ lại nguồn dữ liệu về SQL Server instance (Power BI → Transform Data → Data source settings).
+## Dashboard Preview
+**Overview**
+![Overview](docs/images/dashboard_page1_overview.png)
+
+**Product Performance**
+![Product](docs/images/dashboard_page1_product.png)
+
+**Traffic Performance**
+![Traffic](docs/images/dashboard_page2_traffic.png)
+
+**Customer Retention**
+![Customer](docs/images/dashboard_page3_customer.png)
 
 ---
 
@@ -100,3 +108,6 @@ Chi tiết đầy đủ + action đề xuất: xem `docs/Project_Brief.pdf`.
 - **Database:** Microsoft SQL Server
 - **ETL:** Python (pandas, SQLAlchemy, pyodbc)
 - **BI:** Power BI
+
+**Nguyễn Phúc An** — Information Systems student, [Ho Chi Minh City University of Technology and Education](#)
+[LinkedIn](#) · [GitHub](#)
