@@ -82,13 +82,13 @@ Mở `dashboard/Dashboard_Fuzzy_Factory.pbix` bằng Power BI Desktop, trỏ l�
 ![Overview](docs/images/dashboard_page1_overview.png)
 
 **Product Performance**
-![Product](docs/images/dashboard_page1_product.png)
+![Product](docs/images/dashboard_page2_product.png)
 
 **Traffic Performance**
-![Traffic](docs/images/dashboard_page2_traffic.png)
+![Traffic](docs/images/dashboard_page3_traffic.png)
 
 **Customer Retention**
-![Customer](docs/images/dashboard_page3_customer.png)
+![Customer](docs/images/dashboard_page4_customer.png)
 
 ---
 
