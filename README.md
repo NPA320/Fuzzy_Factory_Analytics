@@ -51,8 +51,6 @@ Chạy `sql/01_create_tables.sql` trên SQL Server để tạo database `FUZZY_F
 
 (thứ tự này cũng là thứ tự khóa ngoại: bảng cha phải tồn tại trước bảng con tham chiếu tới nó).
 
-> Đặt 6 file CSV gốc vào `data/raw/` trước khi sang Stage 2. Tên file phải khớp đúng: `products.csv`, `website_sessions.csv`, `website_pageviews.csv`, `orders.csv`, `order_items.csv`, `order_item_refunds.csv`.
-
 ## 4. Stage 2 — ETL (Python)
 
 ```bash
@@ -67,13 +65,13 @@ python etl/etl.py
 ```
 
 Script sẽ:
-1. Kết nối SQL Server (nếu không kết nối được → tự chuyển sang "chế độ giả lập", lưu CSV đã làm sạch vào `data/processed/`).
+1. Kết nối SQL Server , lưu CSV đã làm sạch vào `data/processed/`.
 2. Đọc từng CSV trong `data/raw/`, loại trùng, chuẩn hoá chuỗi, xử lý NULL theo từng bảng cụ thể, ép kiểu ngày.
-3. Xoá dữ liệu cũ bằng `DELETE` (không `DROP TABLE`, để giữ nguyên ràng buộc khóa ngoại) rồi nạp dữ liệu mới (`append`).
+3. Xoá dữ liệu cũ bằng `DELETE`, rồi nạp dữ liệu mới.
 
 ## 5. Stage 3 — EDA (SQL)
 
-Chạy từng block trong `sql/02_eda_queries.sql` trên SQL Server (hoặc trong SSMS/Azure Data Studio) để lấy các chỉ số: doanh thu theo thời gian, AOV/AUP/UPT, refund rate theo sản phẩm, traffic & conversion theo nguồn, funnel theo thiết bị, cross-sell, retention...
+Chạy từng block trong `sql/02_eda_queries.sql` trên SQL Server để lấy các chỉ số: doanh thu theo thời gian, AOV/AUP/UPT, refund rate theo sản phẩm, traffic & conversion theo nguồn, funnel theo thiết bị, cross-sell, retention...
 
 
 ## 6. Stage 4 — Dashboard (Power BI)
