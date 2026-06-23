@@ -76,7 +76,7 @@ Chạy từng block trong `sql/02_eda_queries.sql` trên SQL Server để lấy 
 
 ## 6. Stage 4 — Dashboard (Power BI)
 
-Mở `dashboard/Dashboard_Fuzzy_Factory.pbix` bằng Power BI Desktop, trỏ lại nguồn dữ liệu về SQL Server instance của bạn (Power BI → Transform Data → Data source settings).
+Mở `dashboard/Dashboard_Fuzzy_Factory.pbix` bằng Power BI Desktop, trỏ lại nguồn dữ liệu về SQL Server instance (Power BI → Transform Data → Data source settings).
 
 ---
 
