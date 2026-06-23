@@ -1,0 +1,16 @@
+
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+
+data/processed/cleaned_*.csv
+
+
+.DS_Store
+Thumbs.db
+
+
+*.pbix.bak
+~$*
