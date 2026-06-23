@@ -15,8 +15,6 @@ Pipeline: **CSV (raw data) → SQL Server (tạo bảng) → Python (ETL: clean 
 
 Chi tiết đầy đủ về bối cảnh và phát hiện phân tích: xem [`docs/Project_Brief.pdf`](docs/Project_Brief.pdf).
 
-> ⚠️ Trước khi coi các số liệu trong báo cáo là kết luận cuối cùng, xem [`REVIEW.md`](REVIEW.md) — file ghi lại các lỗi kỹ thuật đã phát hiện trong quá trình rà soát lại pipeline và hướng sửa.
-
 ---
 
 ## 2. Cấu trúc repo
