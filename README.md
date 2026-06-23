@@ -77,6 +77,18 @@ Chạy từng block trong `sql/02_eda_queries.sql` trên SQL Server để lấy 
 ## 6. Stage 4 — Dashboard (Power BI)
 
 Mở `dashboard/Dashboard_Fuzzy_Factory.pbix` bằng Power BI Desktop, trỏ lại nguồn dữ liệu về SQL Server instance (Power BI → Transform Data → Data source settings).
+## Dashboard Preview
+**Overview**
+![Overview](docs/images/dashboard_page1_overview.png)
+
+**Product Performance**
+![Product](docs/images/dashboard_page1_product.png)
+
+**Traffic Performance**
+![Traffic](docs/images/dashboard_page2_traffic.png)
+
+**Customer Retention**
+![Customer](docs/images/dashboard_page3_customer.png)
 
 ---
 
@@ -96,3 +108,6 @@ Chi tiết đầy đủ + action đề xuất: xem `docs/Project_Brief.pdf`.
 - **Database:** Microsoft SQL Server
 - **ETL:** Python (pandas, SQLAlchemy, pyodbc)
 - **BI:** Power BI
+
+**Nguyễn Phúc An** — Information Systems student, [Ho Chi Minh City University of Technology and Education](#)
+[LinkedIn](#) · [GitHub](#)
